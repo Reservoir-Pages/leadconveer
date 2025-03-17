@@ -1,3 +1,3 @@
 ## HouseOfSites/Leadconveer
 
-[Link to site](https://reservoir-pages.github.io// "Сайт размещен на GitHub Pages")
+[Link to site](https://reservoir-pages.github.io/leadconveer/ "Сайт размещен на GitHub Pages")
