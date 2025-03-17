@@ -1,0 +1,103 @@
+@use "../../variables" as *;
+@use "../../functions/" as *;
+@use "../../mixins/" as *;
+
+.how {
+	margin-bottom: fluid(15, 60);
+
+	&__container {
+		position: relative;
+		padding: fluid(20, 81) fluid(20, 150) fluid(20, 75);
+
+		max-width: rem(1780);
+		border-radius: fluid(10, 40);
+		background-color: $color-light-grey;
+	}
+
+	&__title {
+		margin-bottom: fluid(10, 60);
+	}
+
+	&-swiper {
+		margin-bottom: fluid(15, 60);
+
+		&__slide {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			gap: fluid(20, 100);
+			height: auto;
+
+			@include laptop {
+				flex-direction: column;
+				align-items: flex-start;
+				justify-content: flex-start;
+				gap: fluid(10, 40);
+			}
+		}
+
+		&__title {
+			@include flex-col;
+			gap: fluid(5, 30);
+			margin: 0;
+			max-width: rem(659);
+			font-family: $second-family;
+			font-weight: 700;
+
+			@include laptop {
+				max-width: none;
+			}
+
+			&-count {
+				display: flex;
+				gap: fluid(10, 40);
+				font-size: fluid(20, 80);
+				line-height: 100%;
+			}
+
+			&-img {
+				@include square(fluid(20, 72));
+			}
+
+			&-text {
+				font-family: $second-family;
+				font-size: fluid(20, 48);
+				line-height: 108%;
+			}
+		}
+
+		&__list {
+			@include flex-col;
+			gap: fluid(5, 20);
+			max-width: rem(735);
+
+			@include laptop {
+				max-width: none;
+			}
+		}
+
+		&__item {
+			&-text {
+				margin: 0;
+				line-height: 120%;
+			}
+		}
+	}
+
+	.swiper-pagination.swiper-pagination-bullets {
+		position: static;
+
+		.swiper-pagination-bullet {
+			margin: 0 rem(8);
+
+			@include square(fluid(20, 30));
+
+			background-color: #dbdbdb;
+			opacity: 1;
+
+			&-active {
+				background-color: $color-orange-juice;
+			}
+		}
+	}
+}

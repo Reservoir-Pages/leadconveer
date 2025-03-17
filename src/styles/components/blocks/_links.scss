@@ -1,0 +1,68 @@
+@use "../../variables" as *;
+@use "../../functions/" as *;
+
+.link {
+	font-family: $font-family;
+	font-size: fluid(16, 24);
+	font-weight: 400;
+	text-decoration: underline;
+	text-decoration-skip-ink: none;
+	color: $color-grey;
+	transition: color 0.3s ease-in-out;
+
+	&:hover {
+		color: $color-dark-grey;
+		opacity: 1;
+	}
+
+	&:active {
+		color: $color-orange-juice;
+	}
+
+	&:disabled,
+	&.disabled {
+		color: $color-grey2;
+		cursor: not-allowed;
+	}
+
+	&--dark-bg {
+		color: $color-white;
+		text-decoration: none;
+
+		&:hover {
+			color: $color-grey2;
+		}
+
+		&:active {
+			color: $color-orange-juice;
+		}
+
+		&:disabled,
+		&.disabled {
+			color: #3f3f3f;
+
+			&:hover {
+				color: #3f3f3f;
+			}
+		}
+	}
+
+	&--address {
+		font-size: fluid(24, 32);
+		color: $color-dark-grey;
+		text-decoration: none;
+
+		&:hover {
+			color: $color-grey;
+		}
+
+		&:active {
+			color: $color-orange-juice;
+		}
+
+		&:disabled,
+		&.disabled {
+			color: $color-grey2;
+		}
+	}
+}

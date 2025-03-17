@@ -1,0 +1,114 @@
+@use "../../variables" as *;
+@use "../../functions/" as *;
+@use "../../mixins/" as *;
+
+.advantages {
+	margin-bottom: fluid(15, 62);
+
+	&__container {
+		@include flex-col;
+		gap: fluid(10, 20);
+		padding-top: fluid(15, 60);
+	}
+
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-auto-rows: minmax(rem(349), auto);
+		grid-gap: fluid(10, 20);
+
+		@include tablet {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__item {
+		@include flex;
+		border-radius: rem(30);
+	}
+
+	.advantage {
+		background-color: $color-light-grey;
+
+		@include laptop {
+			@include flex-col;
+		}
+
+		@include tablet {
+			flex-direction: row;
+		}
+
+		&__content {
+			@include flex-col;
+			gap: fluid(15, 25);
+			padding: fluid(15, 60) fluid(10, 40) fluid(15, 50);
+			max-width: 58%;
+
+			@include laptop {
+				max-width: 100%;
+			}
+		}
+
+		&__title {
+			position: relative;
+			padding-right: fluid(calc(10 + 30), calc((30 + 44)));
+			margin: 0;
+			width: min-content;
+			font-size: fluid(16, 32);
+			line-height: 125%;
+			font-weight: 400;
+
+			&::after {
+				content: "";
+				position: absolute;
+				top: 0;
+				right: 0;
+				@include square(fluid(30, 44));
+				background-image: url("@images/advantages/decor.svg");
+				background-repeat: no-repeat;
+				background-position: center;
+				background-size: cover;
+			}
+		}
+
+		&__descr {
+			margin: 0;
+			font-size: fluid(14, 24);
+			line-height: 120%;
+			color: $color-grey;
+		}
+
+		&__img {
+			position: relative;
+			margin-top: auto;
+			margin-left: auto;
+			width: 42%;
+			max-height: rem(340);
+			max-width: rem(365);
+			border-bottom-right-radius: rem(30);
+			overflow: hidden;
+
+			@include tablet {
+				min-width: rem(230);
+			}
+
+			&::before {
+				content: "";
+				position: absolute;
+				left: fluid(0, 43);
+				top: fluid(10, 129);
+				z-index: 1;
+				height: rem(294);
+				width: rem(373);
+				background-color: $color-dark-grey;
+				border-radius: 50%;
+				transform: rotate(-20deg);
+			}
+
+			img {
+				position: relative;
+				z-index: 2;
+			}
+		}
+	}
+}

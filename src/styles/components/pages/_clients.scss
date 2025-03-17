@@ -1,0 +1,44 @@
+@use "../../variables" as *;
+@use "../../functions/" as *;
+@use "../../mixins/" as *;
+
+.clients {
+	margin-bottom: fluid(15, 62);
+
+	&__container {
+		@include flex-col;
+		align-items: center;
+		padding-top: fluid(15, 60);
+	}
+
+	&__descr {
+		max-width: rem(600);
+
+		&:not(:last-child) {
+			margin-bottom: fluid(15, 40);
+		}
+	}
+
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		grid-gap: fluid(5, 20);
+		width: 100%;
+
+		@include desktop {
+			grid-template-columns: repeat(2, 1fr);
+		}
+
+		@include tablet {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	&__item {
+		@include flex-center;
+		padding: fluid(20, 40);
+		min-height: fluid(150, 200);
+		border-radius: fluid(15, 30);
+		background-color: $color-light-grey;
+	}
+}

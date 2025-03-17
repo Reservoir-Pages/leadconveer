@@ -1,0 +1,67 @@
+@use "sass:math";
+@use "../functions/" as *;
+
+@mixin line-clamp($line: 1) {
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: $line;
+	overflow: hidden;
+}
+
+@mixin text-fluid($min: 16, $max: 48) {
+	font-size: fluid($min, $max);
+}
+
+@mixin tag($color: white, $bg: rgba(white, 0.2)) {
+	padding: fluid(6, 8) rem(12);
+	// height: 33px;
+	height: fluid(26, 33);
+	// border-radius: 39px;
+	border-radius: fluid(20, 39);
+	font-size: 12px;
+	font-size: fluid(10, 12);
+	// line-height: 13px;
+	line-height: fluid(14, 17);
+	font-weight: 700;
+	color: $color;
+	text-transform: uppercase;
+	background-color: $bg;
+}
+
+@mixin bg-cover-center($url) {
+	background-image: url($url);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+}
+
+@mixin outline($color: red) {
+	outline: 1px solid $color;
+}
+
+@mixin hide {
+	opacity: 0;
+	visibility: hidden;
+}
+
+@mixin show {
+	opacity: 1;
+	visibility: visible;
+}
+
+@mixin visually-hidden {
+	position: fixed;
+	transform: scale(0);
+}
+
+@mixin abs-center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	translate: -50% -50%;
+}
+
+@mixin square($size) {
+	height: $size;
+	width: $size;
+}

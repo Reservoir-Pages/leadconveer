@@ -1,0 +1,60 @@
+@use "../variables" as *;
+@use "../mixins/" as *;
+@use "../functions/" as *;
+
+.container {
+	margin-inline: auto;
+	padding: 0 fluid(15, $container-padding-x);
+	max-width: rem($container);
+}
+
+.subtitle {
+	@include flex-col;
+	margin: 0;
+	margin-bottom: fluid(10, 20);
+	font-family: $second-family;
+	font-size: fluid(20, 48);
+	line-height: 108%;
+	font-weight: 700;
+	text-align: center;
+
+	&__text {
+		color: $color-dark-grey;
+
+		&--orange {
+			color: $color-orange-juice;
+		}
+	}
+}
+
+.description {
+	margin: 0;
+	font-size: fluid(14, 32);
+	line-height: 120%;
+	text-align: center;
+	color: $color-grey;
+}
+
+.visually-hidden {
+	@include visually-hidden;
+}
+
+.is-hidden {
+	display: none !important;
+}
+
+.mobile-hidden {
+	@include tablet {
+		display: none !important;
+	}
+}
+
+.desktop-hidden {
+	@include above-tablet {
+		display: none !important;
+	}
+}
+
+.scroll-stop {
+	overflow: hidden;
+}

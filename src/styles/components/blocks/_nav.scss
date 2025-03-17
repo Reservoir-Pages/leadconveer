@@ -1,0 +1,46 @@
+@use "../../variables" as *;
+@use "../../functions/" as *;
+@use "../../mixins/" as *;
+
+.nav {
+	@include tablet {
+		position: absolute;
+		top: 0;
+		right: 0;
+		z-index: 2;
+		padding-top: rem(70);
+		padding-bottom: rem(20);
+		padding-inline: rem(20);
+		height: 100vh;
+		width: 100%;
+		background-color: $color-dark-grey;
+
+		transition: transform 0.5s ease;
+		transform: translateX(-100%);
+
+		&.active {
+			transform: translateX(0);
+		}
+	}
+
+	&__list {
+		@include flex-v-center;
+		gap: fluid(5, 10) fluid(0, 60);
+		margin: 0 auto;
+		height: 100%;
+		max-width: fit-content;
+
+		@include tablet {
+			flex-direction: column;
+			flex-wrap: nowrap;
+			max-width: none;
+			overflow-y: auto;
+		}
+	}
+
+	&__link {
+		@include laptop {
+			font-size: fluid(14, 18);
+		}
+	}
+}

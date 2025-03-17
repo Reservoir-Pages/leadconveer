@@ -1,0 +1,72 @@
+@use "../../variables" as *;
+@use "../../functions/" as *;
+@use "../../mixins/" as *;
+
+.footer {
+	border-top-right-radius: fluid(15, 40);
+	border-top-left-radius: fluid(15, 40);
+	background-color: $color-dark-grey;
+
+	&__container {
+		padding-block: fluid(20, 82);
+		color: $color-white;
+		text-align: center;
+	}
+
+	&__copyright {
+		margin: 0;
+		font-size: fluid(16, 32);
+
+		&:not(:last-child) {
+			margin-bottom: fluid(10, 21);
+		}
+	}
+
+	&__company {
+		margin: 0;
+
+		&:not(:last-child) {
+			margin-bottom: fluid(15, 37);
+		}
+	}
+
+	&__list {
+		@include flex-h-center;
+
+		@include tablet {
+			flex-direction: column;
+		}
+	}
+
+	.links {
+		&__item {
+			position: relative;
+			padding-inline: fluid(5, 7);
+
+			&:not(:first-child) {
+				&::after {
+					content: "|";
+					position: absolute;
+					top: 50%;
+					left: 0;
+					font-size: fluid(14, 20);
+					color: $color-grey;
+					transform: translate(rem(-3), calc(-50% + 3px));
+
+					@include tablet {
+						content: none;
+					}
+				}
+			}
+		}
+
+		&__link {
+			font-size: fluid(14, 20);
+			color: $color-grey;
+
+			&:hover {
+				color: $color-white;
+			}
+		}
+	}
+}

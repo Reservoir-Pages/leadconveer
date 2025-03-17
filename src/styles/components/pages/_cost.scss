@@ -1,0 +1,169 @@
+@use "../../variables" as *;
+@use "../../functions/" as *;
+@use "../../mixins/" as *;
+
+.cost {
+	margin-bottom: fluid(15, 51);
+
+	&__container {
+		@include flex-col;
+		padding-top: fluid(15, 60);
+	}
+
+	&__descr {
+		margin-bottom: fluid(15, 59);
+		padding-inline: fluid(0, 300);
+
+		@include tablet {
+			padding: 0;
+		}
+	}
+
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		grid-gap: fluid(10, 20);
+
+		@include tablet {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	.prices {
+		&__item {
+			@include flex-col;
+			padding: fluid(10, 40);
+			border-radius: fluid(10, 30);
+			background-color: $color-light-grey;
+
+			&--dark {
+				color: $color-white;
+				background-color: $color-dark-grey;
+
+				.prices {
+					&__bage {
+						border: 1px solid $color-white;
+
+						&::after {
+							background-image: url("@images/cost/decor-light.svg");
+						}
+					}
+
+					&__advantages {
+						&-item {
+							&::before {
+								border-color: $color-white;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		&__bage {
+			position: relative;
+			padding: fluid(5, 12) fluid(10, 18);
+			max-width: max-content;
+			border: 1px solid $color-dark-grey;
+			border-radius: fluid(10, 20);
+			font-size: fluid(14, 32);
+			line-height: 101%;
+			background: rgba(255, 255, 255, 0.1);
+
+			&:not(:last-child) {
+				margin-bottom: fluid(10, 30);
+			}
+
+			&::after {
+				content: "";
+				position: absolute;
+				top: 50%;
+				right: rem(-5);
+				@include square(fluid(30, 56));
+				background-image: url("@images/cost/decor-dark.svg");
+				background-size: cover;
+				transform: translate(130%, -50%);
+			}
+		}
+
+		&__title {
+			margin: 0;
+			max-width: rem(390);
+			font-family: $second-family;
+			font-size: fluid(16, 36);
+			line-height: 117%;
+			font-weight: 700;
+
+			&:not(:last-child) {
+				margin-bottom: fluid(5, 20);
+			}
+
+			&-text {
+				&--accent {
+					white-space: nowrap;
+					background: linear-gradient(
+						90deg,
+						#f60 0%,
+						#f26659 27.4%,
+						#f06177 37.4%,
+						#e55d97 48.4%,
+						#ca46d2 71.4%,
+						#8d13f9 100%
+					);
+					background-clip: text;
+					-webkit-background-clip: text;
+					-webkit-text-fill-color: transparent;
+				}
+			}
+		}
+
+		&__descr {
+			margin: 0;
+			max-width: rem(450);
+			font-size: fluid(14, 24);
+			line-height: 121%;
+			color: $color-grey;
+
+			&:not(:last-child) {
+				margin-bottom: fluid(10, 31);
+			}
+		}
+
+		&__advantages {
+			@include flex-col;
+			gap: fluid(10, 22);
+
+			&:not(:last-child) {
+				margin-bottom: fluid(10, 40);
+			}
+
+			&-item {
+				position: relative;
+				padding-left: fluid(calc(20 + 10), calc(28 + 14));
+				max-width: rem(430);
+				font-size: fluid(14, 24);
+
+				&--accent {
+					font-weight: 700;
+				}
+
+				&::before {
+					content: "";
+					position: absolute;
+					top: 10%;
+					left: 0;
+					height: fluid(14, 16);
+					width: fluid(20, 24);
+					border-bottom: fluid(2, 4) solid $color-dark-grey;
+					border-left: fluid(2, 4) solid $color-dark-grey;
+					border-radius: fluid(1, 3);
+					transform: rotate(-45deg);
+				}
+			}
+		}
+
+		&__btn {
+			margin-top: auto;
+		}
+	}
+}

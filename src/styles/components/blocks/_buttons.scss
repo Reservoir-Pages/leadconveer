@@ -1,0 +1,32 @@
+@use "../../variables" as *;
+@use "../../functions/" as *;
+
+.btn {
+	display: block;
+	padding: fluid(10, 24) fluid(20, 60);
+	width: 100%;
+	border-radius: fluid(10, 20);
+	font-family: Kollektif, sans-serif;
+	font-size: fluid(14, 24);
+	line-height: 100%;
+	font-weight: 700;
+	color: $color-white;
+	text-transform: uppercase;
+	background-color: $color-orange-juice;
+	transition: background-color 0.3s ease-in-out;
+
+	&:hover {
+		background-color: #ff9832;
+		opacity: 1;
+	}
+
+	&:active {
+		background-color: #cd3400;
+	}
+
+	&:disabled,
+	&.disabled {
+		background-color: $color-grey2;
+		cursor: not-allowed;
+	}
+}

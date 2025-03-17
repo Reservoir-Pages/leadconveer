@@ -1,0 +1,100 @@
+@use "../../variables" as *;
+@use "../../functions/" as *;
+@use "../../mixins/" as *;
+
+.contacts {
+	padding-top: fluid(15, 60);
+	margin-bottom: fluid(15, 120);
+
+	&__container {
+		display: flex;
+		justify-content: space-between;
+		padding-right: 0;
+
+		max-width: rem(1780);
+		border-radius: fluid(15, 60);
+		background-color: $color-light-grey;
+
+		@include tablet {
+			flex-direction: column;
+			padding-inline: fluid(20, 60);
+			padding-bottom: fluid(20, 60);
+		}
+	}
+
+	&__content {
+		padding-block: fluid(20, 80);
+		padding-left: fluid(0, 10);
+		padding-right: fluid(15, 60);
+		width: 50%;
+
+		@include tablet {
+			padding: fluid(20, 40);
+			width: auto;
+		}
+	}
+
+	&__title {
+		padding-right: 50px;
+	}
+
+	&__descr {
+		&:not(:last-child) {
+			margin-bottom: fluid(15, 61);
+		}
+	}
+
+	&__address {
+		max-width: rem(600);
+		font-family: $font-family;
+		font-size: fluid(16, 32);
+		font-weight: 400;
+		font-style: normal;
+		color: $color-dark-grey;
+	}
+
+	.address {
+		&__list {
+			@include flex-col;
+			gap: fluid(10, 30);
+		}
+
+		&__item {
+			@include flex-col;
+			gap: fluid(10, 15) fluid(10, 12);
+
+			&--icon-link {
+				flex-direction: row;
+			}
+		}
+
+		&__descr {
+			max-width: calc(100% - fluid(calc(10 + 40), calc(12 + 99)));
+			line-height: 120%;
+			color: $color-grey;
+		}
+
+		&__link {
+			align-items: center;
+			max-width: max-content;
+		}
+
+		&__icon {
+			@include square(fluid(40, 64));
+		}
+	}
+
+	&__img {
+		width: 55%;
+		max-width: rem(880);
+
+		@include tablet {
+			width: auto;
+		}
+
+		img {
+			height: 100%;
+			border-radius: fluid(15, 60);
+		}
+	}
+}

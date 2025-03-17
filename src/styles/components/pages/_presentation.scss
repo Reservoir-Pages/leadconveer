@@ -1,0 +1,45 @@
+@use "../../variables" as *;
+@use "../../functions/" as *;
+@use "../../mixins/" as *;
+
+.presentation {
+	margin-bottom: fluid(15, 60);
+	overflow: hidden;
+
+	&__container {
+		padding-top: fluid(15, 60);
+	}
+
+	&__title {
+		position: relative;
+		padding-right: fluid(50, 92);
+		margin-inline: auto;
+		margin-bottom: fluid(10, 40);
+		max-width: rem(1025);
+		transform: translateX(fluid(25, 46));
+
+		&::after {
+			content: "";
+			position: absolute;
+			bottom: 0;
+			right: 0;
+			@include square(fluid(40, 72));
+			background-image: url("@images/presentation/camera.png");
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+	}
+
+	&__video {
+		margin-inline: auto;
+		width: 100%;
+		max-width: rem(1180);
+		border-radius: fluid(10, 40);
+		overflow: hidden;
+
+		video {
+			max-height: rem(540);
+			width: 100%;
+		}
+	}
+}
